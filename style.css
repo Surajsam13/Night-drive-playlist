@@ -1,0 +1,221 @@
+:root {
+  --neon-cyan: #00f2ff;
+  --neon-amber: #ffb700;
+  --bg-dark: #0a0b10;
+  --text-dim: #8a99ad;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Animation */
+.road-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: linear-gradient(180deg, #020208 0%, #0a1128 60%, #1c002b 100%);
+}
+
+.night-sky {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: radial-gradient(circle at 50% 100%, rgba(0, 242, 255, 0.1), transparent 70%);
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #05050a 0%, #000000 100%);
+  border-top: 2px solid rgba(0, 242, 255, 0.3);
+}
+
+/* Rain Canvas Overlay */
+#rain-glass-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Dashboard UI */
+.dashboard-container {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 420px;
+}
+
+.now-playing-card {
+  background: rgba(10, 12, 20, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.header-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  color: var(--neon-cyan);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff0055;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff0055;
+}
+
+.track-details h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-details h2 {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* Speedometer Widget */
+.speedo-widget {
+  width: 100%;
+  margin: 18px 0 16px 0;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 242, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedo-display {
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+#speed-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.speed-unit {
+  font-size: 0.8rem;
+  color: var(--neon-amber);
+}
+
+.odometer-display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin: 4px 0 10px 0;
+  display: flex;
+  gap: 8px;
+}
+
+.odo-label {
+  color: var(--neon-amber);
+}
+
+.drive-modes {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-dim);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-btn:hover,
+.mode-btn.active {
+  background: rgba(0, 242, 255, 0.2);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+/* Controls */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-btn.play-main {
+  width: 56px;
+  height: 56px;
+  background: var(--neon-cyan);
+  color: #000;
+  font-size: 1.3rem;
+  border: none;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.control-btn:hover {
+  transform: scale(1.05);
+}
